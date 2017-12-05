@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons end> 
+    <button ion-button color="danger" icon-only (click)="addInput()"><ion-icon name="add-circle"></ion-icon></button>
+    </ion-buttons>   
+    <ion-title>Listado de Compras</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    
+    <ion-item *ngFor="let item of attributes; let i = index">
+       
+        <ion-label>#{{ i + 1 }}</ion-label>
+        
+        <ion-input [(ngModel)]="values[i]" (input)="valChange($event.target.value, i)" type="text" placeholder="ingrese cantidad"></ion-input>
+        
+        <button item-right ion-button icon-only (click)="removeInput(i)">
+            <ion-icon name="close"></ion-icon>
+        </button>
+        
+    </ion-item>
+
+    <button ion-button (click)="getValues()">Calcular</button>
+  
+</ion-content>
